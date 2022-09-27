@@ -1,38 +1,43 @@
+/* GRID CONTAINER */
+/* 
+    The smaller fr on columns and rows to add distance without margins or padding from the .c12 class. 
+*/
 .container {
-    display: grid;
+    box-sizing: border-box;
     height: 100vh;
-    width: 100vw;
-    grid-template-columns: 0.001fr 1fr 1fr 1fr 1fr 1fr 1fr 0.001fr;
-    grid-template-rows: 0.001fr 1fr 0.4fr 0.4fr 1fr 1fr 1fr 0.8fr;
+    display: grid;
+    grid-template-columns: 0.01fr repeat(6, 1fr) 0.01fr;
+    grid-template-rows: 0.01fr 1fr 0.4fr 0.4fr 1fr 1fr 1fr 0.9fr;
     gap: 24px;
     margin: auto;
 }
+/* Boxes inside of the grids placements */
 .c1 {
     background-color:aqua;
     grid-area: 2 / 2 / 4 / 4;
 }
 .c2 {
-    background-color: aqua;
+    background-color: rgb(9, 83, 83);
     grid-area: 4 / 2 / 6 / 4;
 }
 .c3 {
-    background-color: aqua;
+    background-color: rgb(23, 238, 238);
     grid-area: 6 / 2 / 8 / 4;
 }
 .c4 {
-    background-color: aqua;
+    background-color: rgb(48, 105, 105);
     grid-area: 2 / 4 / 6 / 6;
 }
 .c5 {
-    background-color: blueviolet;
+    background-color: rgb(38, 98, 135);
     grid-area: 6 / 4 / 7 / 5;
 }
 .c6 {
-    background-color: brown;
+    background-color: rgb(99, 165, 193);
     grid-area: 7 / 4 / 8 / 5;
 }
 .c7 {
-    background-color: olive;
+    background-color: rgb(82, 77, 154);
     grid-area: 2 / 6 / 3 / 8;
 }
 .c8 {
@@ -40,18 +45,32 @@
     grid-area: 3 / 6 / 5 / 8;
 }
 .c9 {
-    background-color: olive;
+    background-color: rgb(30, 230, 230);
     grid-area: 5 / 6 / 6 / 8;
 }
 .c10 {
-    background-color: greenyellow;
+    background-color: rgb(62, 132, 135);
     grid-area: 6 / 5 / 8 / 7;
 }
 .c11 {
-    background-color: darkgoldenrod;
+    background-color: rgb(59, 137, 255);
     grid-area: 6 / 7 / 8 / 8;
 }
+/* 
+    columns from 1 to -1 to fill all columns width, since -1 is the last one.
+    creating a grid to be able to put the h1 where i want it inside of the .c12 
+    without the use of margin and pixels.
+*/
 .c12 {
-    background-color: cornflowerblue;
+    display: grid;
     grid-area: 8 / 1 / 10 / -1;
+    background-color: cornflowerblue;
+    align-items: center;
+    grid-template-columns: 0.02fr;
+}
+.container h1 {
+    grid-column: 2 / -1 ;
+    /* Took the font according to google being theo nes closest to Helvetica Neue*/
+    font-family: 'Inter', sans-serif;
+    font-size: 64px;
 }
